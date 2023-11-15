@@ -13,33 +13,34 @@ int _printf(const char *format, ...)
         va_list n;
 
         va_start(n, format);
-	if (!format || (format[0] == '%' && format[1] == '\0'))
+	if (!format || (format[0] == '%' && format == NULL))
 	{
 		return (-1);
 	}
-        for (i = 0; format[i] != '\0'; i++)
-        {
-                if (format[i] != '%')
-		{
-                        _putchar(format[i]);
-                }
-		else if (format[i + 1] == 'c')
-		{
-			_putchar(va_arg(n, int));
-			i++;
+        	for (i = 0; format[i] != '\0'; i++)
+        	{
+                	if (format[i] != '%')
+			{
+                        	_putchar(format[i]);
+                	}
+			else if (format[i + 1] == 'c')
+			{
+				_putchar(va_arg(n, int));
+				i++;
+			}
+			else if (format[i + 1] == 's')
+			{
+				count_s = putts(va_arg(n, char *));
+				i++;
+				count += (count_s - 1);
+			}
+			else if (format [i + 1] == '%')
+			{
+				_putchar('%');
+				i++;
+			}
+			count += 1;	
 		}
-		else if (format[i + 1] == 's')
-		{
-			count_s = putts(va_arg(n, char *));
-			i++;
-			count += (count_s - 1);
-		}
-		else if (format [i + 1] == '%')
-		{
-			_putchar('%');
-		}
-		count += 1;	
-	}
         va_end(n);
         return (count);
 }
