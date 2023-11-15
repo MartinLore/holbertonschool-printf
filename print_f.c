@@ -9,19 +9,19 @@
  */
 int _printf(const char *format, ...)
 {
-        unsigned int i, count_s, count = 0;
-        va_list n;
+	unsigned int i, count_s, count = 0;
+	va_list n;
 
-        va_start(n, format);
-	if (!format || (format[0] == '%' && format == NULL))
+	va_start(n, format);
+	if (format == NULL)
 	{
-		return (-1);
+		putts("(null)");
 	}
         	for (i = 0; format[i] != '\0'; i++)
         	{
                 	if (format[i] != '%')
 			{
-                        	_putchar(format[i]);
+				_putchar(format[i]);
                 	}
 			else if (format[i + 1] == 'c')
 			{
@@ -41,6 +41,6 @@ int _printf(const char *format, ...)
 			}
 			count += 1;	
 		}
-        va_end(n);
-        return (count);
+		va_end(n);
+	return (count);
 }
