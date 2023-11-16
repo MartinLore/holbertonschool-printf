@@ -6,4 +6,5 @@
 int _putchar(char c);
 int _printf(const char *format, ...);
 int putts(char *c);
+int print_int(int value);
 #endif
