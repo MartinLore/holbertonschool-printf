@@ -1,11 +1,12 @@
 #include <unistd.h>
+
 /**
  * _putchar - print a character
- *@c : char input
+ * @c: char input
  *
- * return: 1
+ * Return: 1 on success, -1 on error
  */
 int _putchar(char c)
 {
-	return (write(1, &c, 1));
+    return (write(1, &c, 1));
 }
