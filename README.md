@@ -79,10 +79,6 @@ To compile the program this command has to be executed:
 ```sh
 $ gcc *.c -o
 ```
-This will create a compilation file, its name is `main.out`. You can run this file in your terminal with the next command:
-```sh
-$ ./main.out
-```
 ## Example
 Here's an example of how does the parameters work in our `_printf()` function:
 ```c 
@@ -90,7 +86,7 @@ Here's an example of how does the parameters work in our `_printf()` function:
 
 int main()
 {
-    _printf("Cohort: "%i", 22);
+    _printf("Cohort: "%i", 22");
     return (0);
 }
 ```
